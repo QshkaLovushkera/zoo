@@ -17,17 +17,17 @@ class Animal:
                     if mass>0:
                         self._HungerLevel+=mass
                     else:
-                        print("Massa edi doljna bit bolshe 0")
+                        print("Масса еды должна быть положительной")
                 else:
-                    print("Massa edi doljna bit chislom")
+                    print("Масса еды должна быть написана числом")
             else:
-                print("Ia takoe ne em")
+                print("Этого животного нельзя кормить этим")
         else:
-            print("Tip edi doljen bit bukvami")
+            print("Тип еды должен быть написан буквами")
 
     @property
     def Age(self):
-        return self.__Age
+        return self._Age
 
     @Age.setter
     def Age(self,value):
@@ -35,14 +35,13 @@ class Animal:
             if value>0:
                 self._Age = value
             else:
-                print("Vozrast doljen bit bolshe 0")
+                print("Возраст должен быть положительным")
         else:
-            print("Vozrast doljen bit cifroi")
+            print("Возраст должен быть написан цифрой")
 
     @property
     def Type(self):
         return self._Type
 
-
     def play(self):
-        print(self._Name," : poigral")
+        print(self._Name," : поиграл")

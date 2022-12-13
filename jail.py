@@ -2,11 +2,11 @@ class Jail:
 
     def __init__(self,square,biom,number):
         self._prisoners = []
-        self._listOfTipesOfAnimals = ["Tiger","Penguin","Elephant"]
+        self._listOfTipesOfAnimals = ["Тигр","Пингвин","Слон"]
         self._maxSquare = square
         self._square=0
         self._biom = biom
-        self.__listOfBioms = ["pustina","jungli","antarktika","savanna","taiga",]
+        self.__listOfBioms = ["пустыня","джунгли","антарктика","саванна","тайга",]
         self._number = number
 
     @property
@@ -43,7 +43,7 @@ class Jail:
             if newBedolaga._Square+self._square<=self._maxSquare:
                 if newBedolaga._whoIsAnimal in self._listOfTipesOfAnimals:
                     f=0
-                    if newBedolaga.Type=="Hishnik":
+                    if newBedolaga.Type=="Хищник":
                         for i in self._prisoners:
                             if i._whoIsAnimal!=newBedolaga._whoIsAnimal:
                                 f = 1

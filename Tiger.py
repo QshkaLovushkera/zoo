@@ -2,10 +2,10 @@ from Animal import *
 class Tiger(Animal):
 
     def __init__(self, name, age):
-        super().__init__(name,age,"Hishnik",["Miaso"], 25,"RRRRRRRRRRRRRRRRRRRRRR!!!!!!!!!")
-        self._whoIsAnimal = "Tiger"
-        self._Biom = "savanna"
+        super().__init__(name,age,"Хищник",["Мясо"], 25,"РРРРРРРРРРРРРРРРРР!!!!!!!!!")
+        self._whoIsAnimal = "Тигр"
+        self._Biom = "саванна"
         self._Square = 20
 
     def bite(self):
-        print(self._Name,"sdelal kus")
+        print(self._Name,"сделал кусь")
