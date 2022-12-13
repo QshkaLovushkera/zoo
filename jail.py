@@ -75,6 +75,10 @@ class Jail:
                 print(i._Name,": недостаточно еды для кормёжки")
             else:
                 k = i._HungerNorm - i._HungerLevel
+                if i._HungerMax <= self.howFeed(i):
+                    i._HungerLevel = i._HungerMax
+                else:
+                    i._HungerLevel = self.howFeed(i)
                 i._HungerLevel += i._HungerMax
                 for x in i._Food:
                     if self._feeder[x]>=k:
