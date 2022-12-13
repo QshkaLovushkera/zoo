@@ -32,6 +32,9 @@ class Animal:
     @property
     def Age(self):
         return self._Age
+    @property
+    def isFeed(self):
+        return self._HungerLevel>=self._HungerNorm
 
     @Age.setter
     def Age(self,value):
