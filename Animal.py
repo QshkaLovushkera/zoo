@@ -1,23 +1,27 @@
 class Animal:
 
-    def __init__(self, name, age, type, foodType, hungerNorm, sound):
+    def __init__(self, name, age, type, foodType, hungerNorm, hungerMax, sound):
         self._Name = name
         self._Age = age
         self._Type = type
         self._Food = foodType
-        self._HungerLevel=0
-        self._HungerNorm=hungerNorm
-        self._Sound=sound
-        self._Square=0
+        self._HungerLevel = 0
+        self._HungerNorm = hungerNorm
+        self._HungerMax = hungerMax
+        self._Sound = sound
+        self._Square = 0
 
     def eat(self,food,mass):
         if type(food) is str:
             if food in self._Food:
                 if type(mass) is int:
-                    if mass>0:
-                        self._HungerLevel+=mass
+                    if mass+self._HungerLevel<=self._HungerMax:
+                        if mass>0:
+                            self._HungerLevel+=mass
+                        else:
+                            print("Масса еды должна быть положительной")
                     else:
-                        print("Масса еды должна быть положительной")
+                        print(self._Name, "не хочет столько еды")
                 else:
                     print("Масса еды должна быть написана числом")
             else:

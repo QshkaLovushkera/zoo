@@ -2,7 +2,7 @@ from Animal import *
 class Penguin(Animal):
 
     def __init__(self, name, age):
-        super().__init__(name, age, "Хищник", ["Рыба"], 10, "Курлык-Курлык")
+        super().__init__(name, age, "Хищник", ["Рыба"], 10, 20, "Курлык-Курлык")
         self._whoIsAnimal = "Пингвин"
         self._Biom = "антарктика"
         self._Square = 10
