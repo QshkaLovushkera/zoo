@@ -10,6 +10,10 @@ class Jail:
         self._number = number
         self._feeder = {}
 
+    def moveAnimal(self, jail, animal):
+        self.addPrisoner(animal)
+        jail.removePrisoner(animal._Name, animal.Type)
+
     @property
     def Biom(self):
         return self._biom
@@ -19,6 +23,9 @@ class Jail:
         if type(newBiom) is str:
             if newBiom in self._listOfBioms:
                 self._biom = newBiom
+                for i in self._prisoners:
+                    if i._Biom != self._biom:
+                        self.removePrisoner(i._Name,i.Type)
             else:
                 print("Нельзя создать такой биом")
         else:
@@ -55,11 +62,13 @@ class Jail:
         else:
             self._feeder[typeOfFood] += mass
 
+
     def howFeed(self,object):
         sumOfAvailibleFood = 0
         for i in object._Food:
             sumOfAvailibleFood += self._feeder[i]
         return sumOfAvailibleFood
+
     @property
     def isAllPrisonersNotHunger(self):
         flag=True
@@ -67,9 +76,9 @@ class Jail:
             flag=i.isFeed
         return flag
 
-    def feedAllAnimals(self):
+    def feedAnimals(self):
         for i in self._prisoners:
-            if i._HungerNorm - i._HungerLevel < 0:
+            if i.isFeed:
                 print(i._Name, "не хочет есть")
             elif i._HungerNorm - i._HungerLevel>self.howFeed(i):
                 print(i._Name,": недостаточно еды для кормёжки")
@@ -94,7 +103,7 @@ class Jail:
                 a={i:0}
                 self._feeder.update(a)
 
-    def addPrisoners(self,newBedolaga):
+    def addPrisoner(self,newBedolaga):
         if newBedolaga._Biom == self._biom:
             if newBedolaga._Square+self._square<=self._maxSquare:
                 if newBedolaga._whoIsAnimal in self._listOfTipesOfAnimals:
@@ -125,6 +134,17 @@ class Jail:
                 print("Нет места для нового животного")
         else:
             print("Это животное не может жить в данном биоме")
+
+    def removePrisoner(self, name, typ):
+        if type(name) is str:
+            if type(typ) is str:
+                fl = True
+                for i in self._prisoners:
+                    if i._Name == name and i.Type == typ:
+                        fl = False
+                        self._prisoners.remove(i)
+                if fl:
+                    print("Такого животного нет")
 
 
 

@@ -9,22 +9,23 @@ E1=Elephant("Олег",17)
 t1=Tiger("Дмитрий",2)
 v1=Jail(100,"саванна",1)
 p1=Penguin("Гоша",3)
+E2 = Elephant("Григорий",19)
 
 z1 = Zoo("Одинцово", 500)
 
-v1.addPrisoners(E1)
+v1.addPrisoner(E1)
+v1.addPrisoner(E2)
 
 z1.addJail(v1)
 
 print(z1._Jails)
-z1.addFoodToJails("листики", 100)
-print(v1.prisoners)
-print(v1.feeder)
-v1.feedAllAnimals()
-print(v1.isAllPrisonersNotHunger)
+
+z1.addFoodToJails("листики", 75)
+z1.addFoodToJails("сено", 75)
+
 print(v1.feeder)
 
-z1.removeJail(1)
+z1.feedAllAnimals()
 
-print(z1._Jails)
+print(v1.feeder)
 

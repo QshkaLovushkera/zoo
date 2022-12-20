@@ -16,6 +16,10 @@ class Zoo:
         else:
             print("Площадь должна быть цифрой")
 
+    def feedAllAnimals(self):
+        for i in self._Jails:
+            i.feedAnimals()
+
     def addJail(self,jail):
         if jail._maxSquare + self._nowSquare<=self._square:
             self._Jails.append(jail)
