@@ -11,8 +11,11 @@ class Jail:
         self._feeder = {}
 
     def moveAnimal(self, jail, animal):
-        self.addPrisoner(animal)
-        jail.removePrisoner(animal._Name, animal.Type)
+        if jail._biom == animal._Biom:
+            self.addPrisoner(animal)
+            jail.removePrisoner(animal._Name, animal.Type)
+        else:
+            print("Нельзя переселить это животное в этот биом")
 
     @property
     def Biom(self):
